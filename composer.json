@@ -1,0 +1,13 @@
+{
+    "name": "basic-app/storage",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "BasicApp\\Storage\\" : ""
+        }
+    },
+    "require": {
+        "webmozart/assert": "*",
+        "league/flysystem": "*"
+    }
+}
