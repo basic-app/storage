@@ -13,4 +13,9 @@ class Storage extends BaseStorage
 
     public $configName = StorageConfig::class;
 
+    public function getBasePath() : string
+    {
+        return ROOTPATH;
+    }
+
 }

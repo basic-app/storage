@@ -13,6 +13,8 @@ abstract class BaseStorage extends \League\Flysystem\Filesystem
 
     public $configName;
 
+    abstract public function getBasePath() : string;
+
     public function writeFile(string $name, string $filename, array $options = [])
     {
         Assert::true(is_file($filename), 'File not found: ' . $filename);
@@ -22,7 +24,7 @@ abstract class BaseStorage extends \League\Flysystem\Filesystem
         return $this->write($name, $content, $options);
     }
 
-    public function basePath(string $path = null) : string
+    public function path(string $path = null) : string
     {
         $config = config($this->configName);
 
@@ -37,22 +39,6 @@ abstract class BaseStorage extends \League\Flysystem\Filesystem
         }
 
         return $return;
-    }
-
-    public function baseUrl(?string $url) : string
-    {
-        $config = config($this->configName);
-
-        Assert::notEmpty($config, 'Config not found: ' . $this->configName);
-
-        $return = $config->basePath;
-
-        if ($url)
-        {
-            $return .= '/' . $url;
-        }
-
-        base_url($return);
     }
 
 }
