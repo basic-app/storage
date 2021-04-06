@@ -1,19 +1,16 @@
 <?php
-
+/**
+ * @author basic-app <dev@basic-app.com>
+ * @license MIT
+ * @link https://basic-app.com
+ */
 namespace BasicApp\Storage\Libraries;
 
-use Webmozart\Assert\Assert;
+use BasicApp\Storage\Config\Storage as StorageConfig;
 
-class Storage extends \League\Flysystem\Filesystem
+class Storage extends BaseStorage
 {
 
-    public function writeFile(string $name, string $filename, array $options = [])
-    {
-        Assert::true(is_file($filename), 'File not found: ' . $filename);
-
-        $content = file_get_contents($filename);
-
-        return $this->write($name, $content);
-    }
+    public $configName = StorageConfig::class;
 
 }

@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * @author basic-app <dev@basic-app.com>
+ * @license MIT
+ * @link https://basic-app.com
+ */
 namespace BasicApp\Storage\Config;
 
 use Webmozart\Assert\Assert;
@@ -16,7 +20,7 @@ class Services extends \CodeIgniter\Config\BaseService
 
         $config = config(Storage::class);
 
-        Assert::notEmpty($config, 'Storage config not found.');
+        Assert::notEmpty($config, 'Config not found: ' . Storage::class);
 
         $path = FCPATH . $config->basePath;
 
